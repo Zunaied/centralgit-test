@@ -1,0 +1,140 @@
+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
+17/9-17/10
+
+$ sudo apt-get update
+$ sudo apt-get install git -y
+$ which git
+
+# change author and email of git 
+$ git config --global user.name "Zunaied Rafee"
+$ git config --global user.email zunaiedrafee@gmail.com
+
+#create a local repo
+$ mkdir singaporegit
+#initialize this directory as git repo 
+$ cd singaporegit
+$ git init
+$ git status
+
+#create a file/code to edit/write something
+$ nano singapore
+
+#add this file to staging
+$ git add .
+
+# Commit this file to local repo
+$ git Commit -m "My first Commit"
+
+#to show commit id
+$ git log
+
+$to show specific commint changes
+$ git show [commitID]
+
+
+#Connect remote(github)/central repo with local pc
+$ git remote add origin [link of the repo]
+
+#push code to github repository
+$ git push -u origin mastrer
+	$ giver username of github and authorize token of github
+
+
+
+
+
+######################################################Start with .gitignore################################################
+avoid comitting file of specific extension(.css .html .js)
+
+# create a file 
+$ vi .gitignore
+	insert -> *.css
+		  *.java
+
+#add this file to staging and commit to local repo and push to github
+$ git add .gitignore
+$ git commit -m "adding .gitignore"
+
+#Creating file of css and java and txt to check if gitignore works well.
+$touch 4.java  5.css  6.java  7.txt  8  file1.txt  file2.txt  file3.css
+$ git add .
+$git commit -m "Testing gitignore"
+$ git push -u origin master
+
+
+#to check lastest commit of git 
+$ git log -1
+#all commit in one line
+$ git log --oneline
+#searching specific commit with a keyword
+$ git log --grep "ignore"
+
+###################################Create Branch###################################
+
+#branch list
+$ git branch
+
+#Branch add
+$ git branch [Branch name: branch1]
+
+#Changing Branch
+$ git checkout branch1
+$ git branch
+
+# branch Delete
+$ git branch -d branch1
+
+#merge branch from existing branch
+$ git merge [branchname]
+	$ git merge branch1file
+# git conflict
+	 occurs when 2 branch has same name file with different content.***********kam korena
+  	Then Occurs conflict error. 
+  	To overcome this error simply open the file and edit the file.
+
+
+# stash storage
+	when a working file needs to put on somewhere for a moment, that place is stash store.
+	emergency kaj ashle workspace theke present kaaj ta stash storage e rekhe diye working space khali kore onno kaaj kora. 
+
+$ touch demofile
+$ git add .
+$ git commit -m "demofile stash commit"
+$ vi demofile 
+	insert-> my first code.
+$ git stash
+$ vi demofile (it'll be empty")
+
+try to work on different name to acvoid CONFLICT.
+
+# now you can write your new code.
+$ vi demofile
+	insert-> second code for client.
+$ cat demofile
+$ git add .
+$ git commit -m "second demofile stash commit"
+$ git stash
+$ git stash list
+
+#fetching data from stash 
+$ git stash apply stash@{1}
+$ git add .
+$ git commit -m "demofile first code commit"
+
+$ git stash apply stash@{0}
+$ git add .
+$ git commit -m "demofile second code commit"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
